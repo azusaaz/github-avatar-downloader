@@ -6,6 +6,7 @@ var fs = require('fs');
 
 console.log('\n========================================');
 console.log('\nwelcome to the GitHub Avatar Downloader!');
+console.log('\n========================================');
 
 function getRepoContributors(repoOwner, repoName, cb) {
   var options = {
@@ -23,6 +24,11 @@ function getRepoContributors(repoOwner, repoName, cb) {
 }
 
 getRepoContributors(args[0], args[1], function (err, result) {
+  if(!args[0]){
+    console.log("\nplease specify repo-owner and repo-name\n");
+    return;
+    // throw "error";  <- also fine
+  }
 
   console.log('\nDownloading images...\n');
 
