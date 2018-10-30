@@ -1,7 +1,7 @@
+var args = process.argv.slice(2);
+
 var request = require('request');
-var {
-  GITHUB_TOKEN
-} = require('./secrets');
+var { GITHUB_TOKEN } = require('./secrets');
 var fs = require('fs');
 
 console.log('\n========================================');
@@ -22,7 +22,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
   });
 }
 
-getRepoContributors("nodejs", "node", function (err, result) {
+getRepoContributors(args[0], args[1], function (err, result) {
 
   console.log('\nDownloading images...\n');
 
